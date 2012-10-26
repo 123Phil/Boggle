@@ -105,6 +105,7 @@ class Boggle:
 			self.letters.append(dice[i][random.randrange(0, 6)])
 
 	def Pgrid(self, score):
+		print ""
 		print " ",
 		for i in xrange(16):
 			if i in (4, 8, 12):
@@ -117,16 +118,6 @@ class Boggle:
 				print "\nCurrent score is ", score
 
 
-
-	def oldPgrid(self, score):
-		print ""
-		print self.letters[:4]
-		print self.letters[4:8]
-		print self.letters[8:12]
-		print self.letters[12:]
-		print "Current score is ", score
-		print ""
-	
 	def Solve(self, Dtrie):
 		path = [0, 1, 2, -1,0,0,0,0,0,0,0,0,0,0,0,0]
 		n = 3
@@ -174,7 +165,6 @@ class Boggle:
 			n += 1
 			path[n] = -1
 		
-		
 		return solution
 			
 			
@@ -201,6 +191,7 @@ def main():
 
 	grid = Boggle(dice);
 	solvedWords = grid.Solve(Dtrie)
+	solvedWords.sort()
 	
 	scoreCtr = 0
 	grid.Pgrid(scoreCtr)
@@ -226,10 +217,16 @@ def main():
 				print ""
 				print "Your words: ", playerWords
 			elif 'S' == choice:
-				print solvedWords
+				solctr = 0
+				for w in solvedWords:
+					if 0 == solctr % 4:
+						print ""
+					print w + "\t\t",
+					solctr += 1
 				maxScore = 0
 				for word in solvedWords:
 					maxScore += len(word) - 2
+				print ""
 				print "Max score = ", maxScore
 			elif 'N' == choice:
 				grid.__init__(dice)
