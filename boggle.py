@@ -224,18 +224,23 @@ def main():
 					print w + "\t\t",
 					solctr += 1
 				maxScore = 0
+				numWords = 0
 				for word in solvedWords:
+					numWords += 1
 					maxScore += len(word) - 2
 				print ""
-				print "Max score = ", maxScore
+				print numWords, " words found."
+				print "Max possible score = ", maxScore
 			elif 'N' == choice:
 				grid.__init__(dice)
 				solvedWords = grid.Solve(Dtrie)
+				solvedWords.sort()
 				scoreCtr = 0
 				playerWords = []
 			elif 'C' == choice:
 				grid.Custom()
 				solvedWords = grid.Solve(Dtrie)
+				solvedWords.sort()
 				scoreCtr = 0
 				playerWords = []
 
