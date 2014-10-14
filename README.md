@@ -9,3 +9,8 @@ it ended up taking forever to solve since it looked up each possible word across
 
 So I figured I would revise it with a trie data structure so that each word lookup was basically instant.
 I found a quick and easy trie in python on stackoverflow, so I decided to code the whole thing up in python.
+
+The python version is awesome!
+and the C++ one still uses a linked list...
+
+I think I'll revisit it at some point and make a gui with SFML...
